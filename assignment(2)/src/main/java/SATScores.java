@@ -120,7 +120,13 @@ public class SATScores {
         if (statsHaveBeenComputed)
             return;
         //TODO  Compute the average and standard deviation
-        average = 10.0 ;
+       int i = 0;
+       while (i < numScores) {
+        average += scores[i]; 
+        i++;
+       }
+       average = average/numScores;
+       // System.out.println(average);
         stdDev = 10.0 ;
         statsHaveBeenComputed = true;
     }
@@ -158,7 +164,7 @@ public class SATScores {
         for (int i = 0; i < numScores; ++i) {
             double s = scores[i];
             //TODO Compute the z score and percentile
-            double z = 10.0 ;
+            double z = 234.242 ;
             double percentile = 10.0 ; 
             String name = names[i];
             printReportLine(name, s, z, percentile);
