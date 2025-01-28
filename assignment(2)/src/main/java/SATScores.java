@@ -36,12 +36,12 @@ public class SATScores {
      * @param args
      */
     public static void main(String[] args) throws FileNotFoundException {
-        if (args.length != 1) {
+        if (args.length != 0) {
             System.err.println ("Usage: java SATScores inputFileName");
             System.exit(1);
         }
         BufferedReader input = new BufferedReader (
-                new FileReader(args[0]));
+                new FileReader("test000.dat"));
         SATScores s = new SATScores();
         s.processScores(input);
     }
