@@ -121,11 +121,12 @@ public class SATScores {
             return;
         //TODO  Compute the average and standard deviation
        int i = 0;
+       double placeHolder = 0;
        while (i < numScores) {
-        average += scores[i]; 
+        placeHolder += scores[i]; 
         i++;
        }
-       average = average/numScores;
+       average = placeHolder/numScores;
        // System.out.println(average);
         stdDev = 10.0 ;
         statsHaveBeenComputed = true;
