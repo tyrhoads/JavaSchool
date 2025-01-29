@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
+import java.lang.Math;
 
 /**
  * 
@@ -129,10 +130,11 @@ public class SATScores {
         placeHolder += Math.pow( scores[i], 2);
         i++;
        }
-       System.out.print(placeHolder);
+       System.out.print(Math.pow(averagePlaceHolder, 2));
        average = averagePlaceHolder/numScores;
        // System.out.println(average);
-        stdDev = 10.0 ;
+        stdDev = numScores*placeHolder - Math.pow(averagePlaceHolder, 2);
+        stdDev = Math.sqrt(stdDev/(numScores*(numScores-1)));
         statsHaveBeenComputed = true;
     }
 
