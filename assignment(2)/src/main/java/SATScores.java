@@ -133,8 +133,8 @@ public class SATScores {
        System.out.print(Math.pow(averagePlaceHolder, 2));
        average = averagePlaceHolder/numScores;
        // System.out.println(average);
-        stdDev = numScores*placeHolder - Math.pow(averagePlaceHolder, 2);
-        stdDev = Math.sqrt(stdDev/(numScores*(numScores-1)));
+        stdDev = Math.sqrt((numScores*placeHolder - Math.pow(averagePlaceHolder, 2))/(numScores*(numScores-1)));
+       
         statsHaveBeenComputed = true;
     }
 
