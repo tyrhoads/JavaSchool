@@ -23,6 +23,8 @@ public class SATScores {
     private double average;
     private double stdDev;
     private boolean statsHaveBeenComputed;
+    private double averagePlaceHolder = 0;
+    private double placeHolder = 0;
 
     public SATScores()
     {
@@ -121,12 +123,14 @@ public class SATScores {
             return;
         //TODO  Compute the average and standard deviation
        int i = 0;
-       double placeHolder = 0;
+       
        while (i < numScores) {
-        placeHolder += scores[i]; 
+        averagePlaceHolder += scores[i];
+        placeHolder += Math.pow( scores[i], 2);
         i++;
        }
-       average = placeHolder/numScores;
+       System.out.print(placeHolder);
+       average = averagePlaceHolder/numScores;
        // System.out.println(average);
         stdDev = 10.0 ;
         statsHaveBeenComputed = true;
