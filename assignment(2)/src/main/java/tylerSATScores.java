@@ -1,5 +1,7 @@
 
 
+
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -38,12 +40,12 @@ public class tylerSATScores {
      * @param args
      */
     public static void main(String[] args) throws FileNotFoundException {
-        if (args.length != 0) {
+        if (args.length != 1) {
             System.err.println ("Usage: java SATScores inputFileName");
             System.exit(1);
         }
         BufferedReader input = new BufferedReader (
-                new FileReader("test002.dat"));
+                new FileReader(args[0]));
         tylerSATScores s = new tylerSATScores();
         s.processScores(input);
     }
@@ -121,7 +123,6 @@ public class tylerSATScores {
     private void computeStats() {
         if (statsHaveBeenComputed)
             return;
-        //TODO  Compute the average and standard deviation
         int i = 0;
         double averagePlaceHolder = 0;
         double placeHolder = 0;
@@ -168,7 +169,6 @@ public class tylerSATScores {
         System.out.printf ("Avg: %6.2f     Std Dev: %6.2f%n", average, stdDev);
         for (int i = 0; i < numScores; ++i) {
             double s = scores[i];
-            //TODO Compute the z score and percentile
             double z = (scores[i]-average)/stdDev;
             double percentile = cumulativeNormal(z)*100; 
             String name = names[i];
