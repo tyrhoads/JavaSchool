@@ -24,8 +24,7 @@ public class SATScores {
     private double average;
     private double stdDev;
     private boolean statsHaveBeenComputed;
-    private double averagePlaceHolder = 0;
-    private double placeHolder = 0;
+    
 
     public SATScores()
     {
@@ -123,16 +122,17 @@ public class SATScores {
         if (statsHaveBeenComputed)
             return;
         //TODO  Compute the average and standard deviation
-       int i = 0;
-       
+        int i = 0;
+        double averagePlaceHolder = 0;
+        double placeHolder = 0;
        while (i < numScores) {
         averagePlaceHolder += scores[i];
         placeHolder += Math.pow( scores[i], 2);
         i++;
        }
-       System.out.print(Math.pow(averagePlaceHolder, 2));
+       
        average = averagePlaceHolder/numScores;
-       // System.out.println(average);
+      
         stdDev = Math.sqrt((numScores*placeHolder - Math.pow(averagePlaceHolder, 2))/(numScores*(numScores-1)));
        
         statsHaveBeenComputed = true;
@@ -171,7 +171,7 @@ public class SATScores {
         for (int i = 0; i < numScores; ++i) {
             double s = scores[i];
             //TODO Compute the z score and percentile
-            double z = 234.242 ;
+            double z = (scores[i]-average)/stdDev;
             double percentile = 10.0 ; 
             String name = names[i];
             printReportLine(name, s, z, percentile);
