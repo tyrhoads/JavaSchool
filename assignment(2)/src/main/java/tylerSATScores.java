@@ -14,7 +14,7 @@ import java.lang.Math;
  * @author zeil
  *
  */
-public class SATScores {
+public class tylerSATScores {
 
     private String[] names;
     private double[] scores;
@@ -26,7 +26,7 @@ public class SATScores {
     private boolean statsHaveBeenComputed;
     
 
-    public SATScores()
+    public tylerSATScores()
     {
         names = new String[MaxScores];
         scores = new double[MaxScores];
@@ -44,7 +44,7 @@ public class SATScores {
         }
         BufferedReader input = new BufferedReader (
                 new FileReader("test002.dat"));
-        SATScores s = new SATScores();
+        tylerSATScores s = new tylerSATScores();
         s.processScores(input);
     }
 
