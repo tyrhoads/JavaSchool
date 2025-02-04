@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.nio.channels.Pipe;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
@@ -63,8 +64,12 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     int velocityY = 0;
     int gravity = 1;
 
-    
+    ArrayList<Pipe> pipes;
+
+
     Timer gameLoop;
+    Timer placePipesTimer;
+
     public Object requestFocus;
     FlappyBird() 
     {
@@ -81,11 +86,25 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     
     //bird
     bird = new Bird(birdImg);
+    pipes = new ArrayList<Pipe>();
+    // place pipe 
+    placePipesTimer = new Timer(1500, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e){
+            placePipes();
+        }
+    } );
+    placePipesTimer.start();
     // game timer
     gameLoop = new Timer(1000/60, this);
     gameLoop.start();
     }
 
+    public void placePipes()
+    {
+        Pipe topPipe = new Pipe(topPipeImg);
+        pipes.add(topPipe);
+    }
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
@@ -98,6 +117,14 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
         g.drawImage(backgroundImg, 0, 0, boardWidth, boardHeight,null);
 
         g.drawImage(bird.img, bird.x, bird.y,bird.width, bird.height,null );
+
+        //pipes
+        for(int i = 0; i < pipes.size(); i++){
+
+            Pipe pipe = pipes.get(i);
+            g.drawImage(pipe.img, pipe.x, pipe.y, pipe.width, pipe.height, null);
+
+        }
     }
 
     public void move()
@@ -106,6 +133,13 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
         velocityY += gravity;
         bird.y += velocityY;
         bird.y = Math.max(bird.y, 0);
+
+        //pipes
+        for(int i = 0; i < pipes.size(); i++)
+        {
+            Pipe pipe = pipes.get(i);
+            pipe.x += velocityX;
+        }
     }
 
     @Override
