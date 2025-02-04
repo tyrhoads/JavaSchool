@@ -13,11 +13,12 @@ public class App {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    
+    System.out.print("hello");
     FlappyBird flappyBird = new FlappyBird();
      
     frame.add(flappyBird);
     frame.pack();
+    flappyBird.requestFocus();
     frame.setVisible(true);
     }
 }
