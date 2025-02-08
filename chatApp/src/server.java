@@ -51,6 +51,24 @@ public class server implements Runnable {
                 nickName = in.readLine();
                 System.out.println(nickName + " contected!");
                 broadcast(nickName + " joined the chat");
+                String mesage;
+                while ((mesage = in.readLine()) != null) {
+                    if(mesage.startsWith("/nick ")){
+                        //TOdo hadle nickname
+                        String[] mesageSplit = mesage.split(" ",2);
+                        if (mesageSplit.length == 2) {
+                            broadcast(nickName + " renamed themselves to " + mesageSplit[1]);
+                            nickName = mesageSplit[1];
+                        }
+                         }
+                    else if(mesage.startsWith("/quit")) {
+
+                    }
+                    else{
+                        broadcast(nickName + ": " + mesage);
+                    }
+                    
+                }
             }catch(IOException e){
 
             }
