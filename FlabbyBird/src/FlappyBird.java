@@ -62,7 +62,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     Bird bird;
     int velocityX = -4;
     int velocityY = 0;
-    int gravity = 1;
+    double gravity = 1;
 
     ArrayList<Pipe> pipes;
     Random random = new Random();
