@@ -42,15 +42,24 @@ public class server implements Runnable {
         
             }
             public void shutDown(){
-                try {
+                try 
+                {
                     done = true;
+                    connectionHandler[] connections;
                     if (!server.isClosed()) {
                         server.close();
+                        for(connectionHandler ch: connections){
+                            ch.shutDown();
                     }
+                    } else {
+                        for(connectionHandler ch: connections){
+                            ch.shutDown();
+                    }
+                    }
+
                 }
-                catch (IOException e){
-                    //ignore
-                }
+                catch (IOException  e){
+                    shutDown();                }
             }
              class connectionHandler  implements Runnable {
 
@@ -98,7 +107,7 @@ public class server implements Runnable {
                     
                 }
             }catch(IOException e){
-
+                shutDown();
             }
     
         }
@@ -108,7 +117,18 @@ public class server implements Runnable {
         {
             out.println(mesage);
         }
-        
+
+
+        public void shutDown() throws IOException {
+            in.close();
+            out.close;
+            if(!client.isClosed()){
+                client.close();
+            }
+            catch (IOException e){
+
+        }
+        }
     }
 
 }
