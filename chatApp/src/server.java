@@ -8,14 +8,24 @@ import java.util.ArrayList;
 
 public class server implements Runnable {
    private ArrayList<connectionHandler> conections;
+   private ServerSocket server;
+   private boolean done;
+
+
+   public server(){
+       conections = new ArrayList<>();
+       done = false;
+   }
    
     @Override
     public void run(){
         try{
-        ServerSocket server = new ServerSocket(9999);
-        Socket client = server.accept();
-        connectionHandler handler = new connectionHandler(client);
-                conections.add(handler);
+
+            ServerSocket server = new ServerSocket(9999);
+            while (!done){
+                Socket client = server.accept();
+                connectionHandler handler = new connectionHandler(client);
+                conections.add(handler);}
                 } catch(IOException e){
         
                 }
@@ -31,8 +41,20 @@ public class server implements Runnable {
                 }
         
             }
+            public void shutDown(){
+                try {
+                    done = true;
+                    if (!server.isClosed()) {
+                        server.close();
+                    }
+                }
+                catch (IOException e){
+                    //ignore
+                }
+            }
              class connectionHandler  implements Runnable {
-              
+
+                int myNumber = 3;
                 private  Socket client;
                 private BufferedReader in;
                 private PrintWriter out;
@@ -45,6 +67,7 @@ public class server implements Runnable {
                 @Override
         public void run(){
             try{
+
                 out =  new PrintWriter(client.getOutputStream(), true);
                 in = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 out.println("please enter a nick name");
@@ -58,7 +81,12 @@ public class server implements Runnable {
                         String[] mesageSplit = mesage.split(" ",2);
                         if (mesageSplit.length == 2) {
                             broadcast(nickName + " renamed themselves to " + mesageSplit[1]);
+                            System.out.println(nickName + " renamed themselves to " + mesageSplit[1]);;
                             nickName = mesageSplit[1];
+                            out.println("Succecfully changed nickname to  "+ nickName);
+                        }
+                        else {
+                            out.println("no nickname was provided!");
                         }
                          }
                     else if(mesage.startsWith("/quit")) {
