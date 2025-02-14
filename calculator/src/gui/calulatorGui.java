@@ -1,4 +1,6 @@
 package gui;
 
-public class calulatorGui {
+import javax.swing.*;
+
+public class calulatorGui extends JFrame {
 }
