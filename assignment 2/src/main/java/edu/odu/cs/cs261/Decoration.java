@@ -32,6 +32,8 @@ public class Decoration extends MobileComponent {
  @Override
  public double getWidth() {
   return 0;
+  //test
+
  }
 
  ;
