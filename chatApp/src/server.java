@@ -27,6 +27,7 @@ public class server implements Runnable {
                 connectionHandler handler = new connectionHandler(client);
                 conections.add(handler);}
                 } catch(IOException e){
+                shutDown();
         
                 }
         
@@ -106,9 +107,11 @@ public class server implements Runnable {
                     }
                     
                 }
-            }catch(IOException e){
+            }
+            catch(IOException e){
                 shutDown();
             }
+
     
         }
 
