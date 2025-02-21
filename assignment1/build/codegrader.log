@@ -1,0 +1,112 @@
+2025-01-30 18:10:16,510 [main] INFO : Starting: -suite Tests -submissions . -inPlace -recording build
+2025-01-30 18:10:16,772 [main] INFO : executeTest using command: ./gradlew jar 
+2025-01-30 18:10:16,776 [main] INFO : . 600
+2025-01-30 18:10:16,802 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test000/test000.dat" 
+2025-01-30 18:10:16,802 [main] INFO : . 5
+2025-01-30 18:10:16,835 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test001/test001.dat" 
+2025-01-30 18:10:16,835 [main] INFO : . 5
+2025-01-30 18:10:16,852 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test002/test002.dat" 
+2025-01-30 18:10:16,853 [main] INFO : . 5
+2025-01-30 18:10:16,869 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test003/test003.dat" 
+2025-01-30 18:10:16,869 [main] INFO : . 5
+2025-01-30 18:10:16,909 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test004/test004.dat" 
+2025-01-30 18:10:16,909 [main] INFO : . 5
+2025-01-30 18:10:16,961 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test005/test005.dat" 
+2025-01-30 18:10:16,968 [main] INFO : . 5
+2025-01-30 18:10:17,125 [main] INFO : removing Tests/builder
+2025-01-30 18:12:54,191 [main] INFO : Starting: -suite Tests -submissions . -inPlace -recording build
+2025-01-30 18:12:54,453 [main] INFO : executeTest using command: ./gradlew jar 
+2025-01-30 18:12:54,457 [main] INFO : . 600
+2025-01-30 18:12:54,479 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test000/test000.dat" 
+2025-01-30 18:12:54,480 [main] INFO : . 5
+2025-01-30 18:12:54,512 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test001/test001.dat" 
+2025-01-30 18:12:54,512 [main] INFO : . 5
+2025-01-30 18:12:54,532 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test002/test002.dat" 
+2025-01-30 18:12:54,532 [main] INFO : . 5
+2025-01-30 18:12:54,550 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test003/test003.dat" 
+2025-01-30 18:12:54,551 [main] INFO : . 5
+2025-01-30 18:12:54,574 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test004/test004.dat" 
+2025-01-30 18:12:54,574 [main] INFO : . 5
+2025-01-30 18:12:54,597 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test005/test005.dat" 
+2025-01-30 18:12:54,598 [main] INFO : . 5
+2025-01-30 18:12:54,742 [main] INFO : removing Tests/builder
+2025-01-30 18:27:05,131 [main] INFO : Starting: -suite Tests -submissions . -inPlace -recording build
+2025-01-30 18:27:05,408 [main] INFO : executeTest using command: ./gradlew jar 
+2025-01-30 18:27:05,412 [main] INFO : . 600
+2025-01-30 18:27:05,437 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test000/test000.dat" 
+2025-01-30 18:27:05,438 [main] INFO : . 5
+2025-01-30 18:27:05,472 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test001/test001.dat" 
+2025-01-30 18:27:05,473 [main] INFO : . 5
+2025-01-30 18:27:05,491 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test002/test002.dat" 
+2025-01-30 18:27:05,492 [main] INFO : . 5
+2025-01-30 18:27:05,509 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test003/test003.dat" 
+2025-01-30 18:27:05,509 [main] INFO : . 5
+2025-01-30 18:27:05,537 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test004/test004.dat" 
+2025-01-30 18:27:05,537 [main] INFO : . 5
+2025-01-30 18:27:05,574 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test005/test005.dat" 
+2025-01-30 18:27:05,575 [main] INFO : . 5
+2025-01-30 18:27:05,740 [main] INFO : removing Tests/builder
+2025-01-30 18:27:32,234 [main] INFO : Starting: -suite Tests -submissions . -inPlace -recording build
+2025-01-30 18:27:32,554 [main] INFO : executeTest using command: ./gradlew jar 
+2025-01-30 18:27:32,559 [main] INFO : . 600
+2025-01-30 18:27:32,584 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test000/test000.dat" 
+2025-01-30 18:27:32,584 [main] INFO : . 5
+2025-01-30 18:27:32,620 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test001/test001.dat" 
+2025-01-30 18:27:32,620 [main] INFO : . 5
+2025-01-30 18:27:32,641 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test002/test002.dat" 
+2025-01-30 18:27:32,642 [main] INFO : . 5
+2025-01-30 18:27:32,661 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test003/test003.dat" 
+2025-01-30 18:27:32,661 [main] INFO : . 5
+2025-01-30 18:27:32,690 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test004/test004.dat" 
+2025-01-30 18:27:32,691 [main] INFO : . 5
+2025-01-30 18:27:32,723 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test005/test005.dat" 
+2025-01-30 18:27:32,724 [main] INFO : . 5
+2025-01-30 18:27:32,848 [main] INFO : removing Tests/builder
+2025-01-30 18:29:56,801 [main] INFO : Starting: -suite Tests -submissions . -inPlace -recording build
+2025-01-30 18:29:57,063 [main] INFO : executeTest using command: ./gradlew jar 
+2025-01-30 18:29:57,068 [main] INFO : . 600
+2025-01-30 18:29:57,089 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test000/test000.dat" 
+2025-01-30 18:29:57,090 [main] INFO : . 5
+2025-01-30 18:29:57,121 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test001/test001.dat" 
+2025-01-30 18:29:57,122 [main] INFO : . 5
+2025-01-30 18:29:57,138 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test002/test002.dat" 
+2025-01-30 18:29:57,139 [main] INFO : . 5
+2025-01-30 18:29:57,155 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test003/test003.dat" 
+2025-01-30 18:29:57,155 [main] INFO : . 5
+2025-01-30 18:29:57,183 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test004/test004.dat" 
+2025-01-30 18:29:57,183 [main] INFO : . 5
+2025-01-30 18:29:57,208 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test005/test005.dat" 
+2025-01-30 18:29:57,208 [main] INFO : . 5
+2025-01-30 18:29:57,324 [main] INFO : removing Tests/builder
+2025-01-30 18:32:05,608 [main] INFO : Starting: -suite Tests -submissions . -inPlace -recording build
+2025-01-30 18:32:05,865 [main] INFO : executeTest using command: ./gradlew jar 
+2025-01-30 18:32:05,870 [main] INFO : . 600
+2025-01-30 18:32:05,892 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test000/test000.dat" 
+2025-01-30 18:32:05,892 [main] INFO : . 5
+2025-01-30 18:32:05,925 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test001/test001.dat" 
+2025-01-30 18:32:05,925 [main] INFO : . 5
+2025-01-30 18:32:05,943 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test002/test002.dat" 
+2025-01-30 18:32:05,943 [main] INFO : . 5
+2025-01-30 18:32:05,960 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test003/test003.dat" 
+2025-01-30 18:32:05,961 [main] INFO : . 5
+2025-01-30 18:32:05,988 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test004/test004.dat" 
+2025-01-30 18:32:05,988 [main] INFO : . 5
+2025-01-30 18:32:06,017 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test005/test005.dat" 
+2025-01-30 18:32:06,017 [main] INFO : . 5
+2025-01-30 18:32:06,164 [main] INFO : removing Tests/builder
+2025-01-30 18:44:54,708 [main] INFO : Starting: -suite Tests -submissions . -inPlace -recording build
+2025-01-30 18:44:54,970 [main] INFO : executeTest using command: ./gradlew jar 
+2025-01-30 18:44:54,974 [main] INFO : . 600
+2025-01-30 18:44:54,995 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test000/test000.dat" 
+2025-01-30 18:44:54,995 [main] INFO : . 5
+2025-01-30 18:44:55,026 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test001/test001.dat" 
+2025-01-30 18:44:55,026 [main] INFO : . 5
+2025-01-30 18:44:55,045 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test002/test002.dat" 
+2025-01-30 18:44:55,046 [main] INFO : . 5
+2025-01-30 18:44:55,063 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test003/test003.dat" 
+2025-01-30 18:44:55,064 [main] INFO : . 5
+2025-01-30 18:44:55,091 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test004/test004.dat" 
+2025-01-30 18:44:55,092 [main] INFO : . 5
+2025-01-30 18:44:55,134 [main] INFO : executeTest using command: java -cp build/libs/assignment.jar tylerSATScores "/Users/tylerrhoads/Documents/JavaSchool/assignment(2)/Tests/test005/test005.dat" 
+2025-01-30 18:44:55,134 [main] INFO : . 5
+2025-01-30 18:44:55,297 [main] INFO : removing Tests/builder

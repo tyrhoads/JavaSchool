@@ -1,0 +1,31 @@
+dateSubmitted:
+  mod: "@I/SATScores.java"
+dueDate: 2025-04-28
+build:
+  command: ./gradlew jar
+  studentFiles:
+    exclude:
+      - Tests/**/*
+      - build/**/*
+  instructorFiles:
+    exclude:
+      - src/SATScores.java
+  javaSrcDir:
+    - src/main/java
+test:
+  launch: "java -cp build/libs/assignment.jar tylerSATScores \"@T/@t.dat\""
+  grading:
+  - oracle: "smart"
+    ws: true
+    case: true
+    cap: 100
+  - ws: false
+    case: false
+    cap: 95
+  - ws: false
+    case: false
+    punctuation: false
+    cap: 90
+  - ws: false
+    numbersOnly: true
+    cap: 50

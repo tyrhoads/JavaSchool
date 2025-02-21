@@ -1,0 +1,108 @@
+plugins {
+   id 'java'
+   id 'application'
+}
+
+def mainClassName = 'SATScores'
+
+repositories {
+    maven { 
+        url 'https://github.com/sjzeil/mvnrepo/raw/main'
+    }
+    mavenCentral()
+}
+
+
+jar {
+   archiveFileName = 'assignment.jar'
+   manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
+application {
+    mainClass = mainClassName
+}
+
+
+test {
+    ignoreFailures = true
+    useJUnitPlatform()
+    reports {
+        junitXml {
+            outputPerTestCase = true // defaults to false
+            mergeReruns = true // defaults to false
+        }
+    }
+}
+
+
+// Add code-grader on target tests
+
+dependencies {
+    implementation 'edu.odu.cs.zeil:code-grader:+'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.3'
+    testImplementation 'org.hamcrest:hamcrest-library:2.2'
+}
+
+task clearGrades (type: Delete) {
+	 delete 'build/grades'
+}
+
+task codeGrader(type: JavaExec, dependsOn: [jar, compileTestJava, clearGrades]) {
+  classpath = sourceSets.main.runtimeClasspath
+  mainClass = 'edu.odu.cs.zeil.codegrader.run.CLI'
+
+  args '-suite', 'Tests', 
+       '-submissions', '.',
+       '-inPlace',
+       '-recording', 'build'
+}
+
+
+task copyGraderReport1(type: Copy, dependsOn: codeGrader) {
+    from 'build/grades/'
+    include '*.html'
+    into 'build'
+}
+
+task copyGraderReport2(type: Copy, dependsOn: copyGraderReport1) {
+    from 'build/grades/'
+    include '*.txt'
+    into 'build'
+}
+
+task tests (dependsOn: ['copyGraderReport1', 'copyGraderReport2']) {
+    doLast {
+        File buildDir = new File("build")
+        def userName = "*"
+        for (File file: buildDir.listFiles()) {
+            def name = file.getName()
+            if (name.endsWith(".html")) {
+                userName = name.substring(0, name.length()-5)
+            }
+        }
+        println '** The grade report is in build/' + userName + '.html or build/' + userName + '.txt '
+        println '   Other details can be found in the Tests directory **'
+    }
+}
+
+clean.doLast {
+    File testsDir = new File("Tests")
+    for (File testCase: testsDir.listFiles()) {
+        if (testCase.isDirectory()) {
+            for (File file: testCase.listFiles()) {
+                def name = file.getName()
+                if (name.endsWith(".err")
+                    || name.endsWith(".message")
+                    || name.endsWith(".out")
+                    || name.endsWith(".score")
+                    || name.endsWith(".time")
+                    ) {
+                    file.delete()
+                }
+            }
+        }
+    }
+}
+

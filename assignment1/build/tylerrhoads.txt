@@ -1,0 +1,49 @@
+Grade report for assignment(2): tylerrhoads
+
+Submitted: 2021-01-01 00:00:00
+Due: 2025-04-28
+Total: 0
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+builder
+score=0	weight=1	multiplier=false
+***Program failed with status code -1
+
+--- end of output ---
+--- std error ---
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+test000
+score=0	weight=1	multiplier=false
+Output line 0 ended early:
+  expected: Avg: 539.00     Std Dev: 176.44
+  observed: \n</span>
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+test001
+score=0	weight=1	multiplier=false
+Output line 0 ended early:
+  expected: Avg: 539.00     Std Dev: 176.44
+  observed: \n</span>
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+test002
+score=0	weight=1	multiplier=false
+Output line 0 ended early:
+  expected: Avg: 217.29     Std Dev:  10.87
+  observed: \n</span>
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+test003
+score=0	weight=1	multiplier=false
+Output line 0 ended early:
+  expected: Avg: 500.05     Std Dev: 292.00
+  observed: \n</span>
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+test004
+score=0	weight=1	multiplier=false
+Output line 0 ended early:
+  expected: Avg: 400.09     Std Dev:   0.30
+  observed: \n</span>
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+test005
+score=0	weight=1	multiplier=false
+Output line 0 ended early:
+  expected: Avg: 400.00     Std Dev:   0.07
+  observed: \n</span>

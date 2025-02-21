@@ -1,0 +1,23 @@
+Test,Score,Weight,Msgs
+"builder: Attempt to build the program.",0,1,"***Program failed with status code -1
+
+--- end of output ---
+--- std error ---"
+"test000",0,1,"Output line 0 ended early:
+  <i>expected: </i><span class='expected'>Avg</span>: 539.00     Std Dev: 176.44
+  <i>observed: </i><span class='observed'>\n</span>"
+"test001",0,1,"Output line 0 ended early:
+  <i>expected: </i><span class='expected'>Avg</span>: 539.00     Std Dev: 176.44
+  <i>observed: </i><span class='observed'>\n</span>"
+"test002",0,1,"Output line 0 ended early:
+  <i>expected: </i><span class='expected'>Avg</span>: 217.29     Std Dev:  10.87
+  <i>observed: </i><span class='observed'>\n</span>"
+"test003",0,1,"Output line 0 ended early:
+  <i>expected: </i><span class='expected'>Avg</span>: 500.05     Std Dev: 292.00
+  <i>observed: </i><span class='observed'>\n</span>"
+"test004",0,1,"Output line 0 ended early:
+  <i>expected: </i><span class='expected'>Avg</span>: 400.09     Std Dev:   0.30
+  <i>observed: </i><span class='observed'>\n</span>"
+"test005",0,1,"Output line 0 ended early:
+  <i>expected: </i><span class='expected'>Avg</span>: 400.00     Std Dev:   0.07
+  <i>observed: </i><span class='observed'>\n</span>"

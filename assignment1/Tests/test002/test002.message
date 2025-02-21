@@ -1,0 +1,3 @@
+Output line 0 ended early:
+  <i>expected: </i><span class='expected'>Avg</span>: 217.29     Std Dev:  10.87
+  <i>observed: </i><span class='observed'>\n</span>
