@@ -1,7 +1,4 @@
 package edu.odu.cs.cs261;
-/**
- * 
- */
 
 /**
  * A decorative object that hangs from the "terminal"
@@ -18,4 +15,26 @@ package edu.odu.cs.cs261;
 public class Decoration extends MobileComponent {
 
 
+
+ public Decoration(int idNum, double weight) {
+  x
  }
+
+ public int getIDNumber(){
+
+  return 1;
+ };
+ public double getWeight(){
+  double weight = 1.2;
+  return weight;
+ }
+
+ @Override
+ public double getWidth() {
+  return 0;
+ }
+
+ ;
+
+
+}
