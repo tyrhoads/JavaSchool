@@ -1,5 +1,8 @@
 package edu.odu.cs.cs261;
-///
+/**
+ *
+ */
+
 /**
  * A balanced bar that provides the structure of a mobile.
  * Bars have the following properties:
