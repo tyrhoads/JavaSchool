@@ -16,7 +16,7 @@ package edu.odu.cs.cs261;
  *
  */
 public class Bar extends MobileComponent {
-    
+    //this is just a test for git
     private double width;
     MobileComponent left;
     MobileComponent right;
