@@ -13,27 +13,25 @@ package edu.odu.cs.cs261;
  *
  */
 public class Decoration extends MobileComponent {
- public Decoration(int idNum, double weight) {
-  System.out.println(idNum);
-  System.out.println(weight);
- }
 
- public int getIDNumber(){
-
-  return 1;
- };
- public double getWeight(){
-  double weight = 1.2;
-  return weight;
- }
-
- @Override
- public double getWidth() {
-  return 0;
-
- }
-
- ;
+    private int idNum;
+    private double weight;
 
 
+    public Decoration(int IDNum, double weight) {
+        super(IDNum);
+    }
+    @Override
+    public double getWeight() {
+        return 0;
+    }
+
+    // Implementing the abstract method from MobileComponent
+
+
+    @Override
+    public double getWidth() {
+        return 0;
+    }
 }
+
