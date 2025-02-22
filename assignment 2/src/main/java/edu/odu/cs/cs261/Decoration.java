@@ -26,7 +26,6 @@ public class Decoration extends MobileComponent {
         return 0;
     }
 
-    // Implementing the abstract method from MobileComponent
 
 
     @Override
