@@ -13,11 +13,9 @@ package edu.odu.cs.cs261;
  *
  */
 public class Decoration extends MobileComponent {
-
-
-
  public Decoration(int idNum, double weight) {
-  x
+  System.out.println(idNum);
+  System.out.println(weight);
  }
 
  public int getIDNumber(){
@@ -32,7 +30,6 @@ public class Decoration extends MobileComponent {
  @Override
  public double getWidth() {
   return 0;
-  //test
 
  }
 
