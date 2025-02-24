@@ -13,17 +13,25 @@ package edu.odu.cs.cs261;
  *
  */
 public class Bar extends MobileComponent {
-    private double width;
+    private final double width;
     MobileComponent left;
     MobileComponent right;
-    
-    public Bar(int ID, double wide, 
+
+    public Bar(int ID, double wide,
             MobileComponent hangingFromLeft, MobileComponent hangingFromRight)
     {
         super(ID);
-        width = wide;
-        left = hangingFromLeft;
+         width = wide;
+         left = hangingFromLeft;
         right = hangingFromRight;
+    }
+
+    double weight = getWeight();
+
+    @Override
+    public int getIDNumber(){
+
+        return 2;
     }
 
     @Override
@@ -33,6 +41,6 @@ public class Bar extends MobileComponent {
 
     @Override
     public double getWidth() {
-        return 0;
+        return width;
     }
 }
