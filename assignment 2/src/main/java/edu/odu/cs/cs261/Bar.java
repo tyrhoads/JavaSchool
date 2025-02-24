@@ -28,11 +28,7 @@ public class Bar extends MobileComponent {
 
     double weight = getWeight();
 
-    @Override
-    public int getIDNumber(){
-
-        return 2;
-    }
+    int id = getIDNumber();
 
     @Override
     public double getWeight() {
@@ -42,5 +38,11 @@ public class Bar extends MobileComponent {
     @Override
     public double getWidth() {
         return width;
+    }
+
+    @Override
+    public double getBalancePoint(){
+
+        return 3.5;
     }
 }
