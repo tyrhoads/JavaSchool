@@ -14,22 +14,23 @@ package edu.odu.cs.cs261;
  */
 public  class Decoration extends MobileComponent {
 
-    private int idNum;
-    private double w;
+
+    private double mass;
 
 
     public Decoration(int IDNum, double weight) {
         super(IDNum);
-        w = weight;
-    }
-    @Override
-    public double getWeight() {
-        return 0;
+        mass = weight;
     }
 
-    public double getWidth(){
-        return 0.0;
+    public double getWeight() {
+        return mass;
     }
+
+   public double getWidth()
+   {
+       return 0.0;
+   }
 
 
 }
