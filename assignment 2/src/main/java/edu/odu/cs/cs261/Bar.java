@@ -29,12 +29,20 @@ public class Bar extends MobileComponent {
 
 
 
-    @Override
     public double getWidth() {
         return width;
     }
+
+
     public double getWeight(){
+        return left.getWeight() + right.getWeight();
+    }
+
+    @Override
+    public double getBalancePoint() {
         return 0.0;
     }
+
+
 
 }
