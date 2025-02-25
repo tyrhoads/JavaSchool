@@ -12,24 +12,23 @@ package edu.odu.cs.cs261;
  * @author zeil
  *
  */
-public class Decoration extends MobileComponent {
+public  class Decoration extends MobileComponent {
 
     private int idNum;
-    private double weight;
+    private double w;
 
 
     public Decoration(int IDNum, double weight) {
         super(IDNum);
+        w = weight;
     }
     @Override
     public double getWeight() {
-
-        return weight;
+        return 0;
     }
 
-    @Override
-    public double getWidth() {
-        return 0;
+    public double getWidth(){
+        return 0.0;
     }
 
 
