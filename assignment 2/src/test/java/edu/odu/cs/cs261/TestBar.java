@@ -13,9 +13,11 @@ public class TestBar {
     @Test
     public void testBarConstructor() {
         Decoration d1 = new Decoration(2, 1.0);
-        Decoration d2 = new Decoration(3, 4.0);
-        Bar bar = new Bar(1, 10.0, d1, d2);
+        Decoration d2 = new Decoration(3, 3.0);
+        Bar bar = new Bar(1, 4.0, d1, d2);
         assertThat(bar.getWeight(), is(d1.getWeight() + d2.getWeight()));
-        assertThat(bar.getWidth(), is(10.0));
+        assertThat(bar.getWidth(), is(4.0));
+        System.out.println(bar.getBalancePoint());
+
     }
 }
