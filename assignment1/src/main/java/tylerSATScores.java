@@ -8,14 +8,7 @@ import java.io.FileReader;
 import java.util.Scanner;
 import java.lang.Math;
 
-/**
- * 
- */
 
-/**
- * @author zeil
- *
- */
 public class tylerSATScores {
 
     private String[] names;
@@ -26,7 +19,7 @@ public class tylerSATScores {
     private double average;
     private double stdDev;
     private boolean statsHaveBeenComputed;
-    
+
 
     public tylerSATScores()
     {
@@ -36,9 +29,7 @@ public class tylerSATScores {
         statsHaveBeenComputed = false;
     }
 
-    /**
-     * @param args
-     */
+
     public static void main(String[] args) throws FileNotFoundException {
         if (args.length != 1) {
             System.err.println ("Usage: java SATScores inputFileName");
@@ -92,8 +83,8 @@ public class tylerSATScores {
 
     /**
      * Computes the cumulative normal function of z, where z is a normalized
-     * value. 
-     * 
+     * value.
+     *
      * @param z
      * @return cumulative normal of z
      */
@@ -114,7 +105,7 @@ public class tylerSATScores {
         else
             return 1.0 - cumulativeNormal(-z);
     }
-    
+
 
     /**
      * Compute the average and standard deviation for the
@@ -131,15 +122,18 @@ public class tylerSATScores {
         placeHolder += Math.pow( scores[i], 2);
         i++;
        }
-       
+
         average = averagePlaceHolder/numScores;
-        stdDev = Math.sqrt((numScores*placeHolder - Math.pow(averagePlaceHolder, 2))/(numScores*(numScores-1)));
+        /* just split up the equations to make it look clearer. */
+        double top = (numScores*placeHolder - Math.pow(averagePlaceHolder, 2));
+        double bottom = (numScores*(numScores-1));
+        stdDev = Math.sqrt(top/bottom);
         statsHaveBeenComputed = true;
     }
 
     /**
      * Read the names and raw scores into the arrays
-     * 
+     *
      * @param input  input stream from which to read
      */
     private void readScores(BufferedReader input) {
@@ -162,7 +156,7 @@ public class tylerSATScores {
     }
 
    /**
-    * Print the report of normalized scores and percentiles for each student. 
+    * Print the report of normalized scores and percentiles for each student.
     */
     private void writeReport()
     {
@@ -170,7 +164,7 @@ public class tylerSATScores {
         for (int i = 0; i < numScores; ++i) {
             double s = scores[i];
             double z = (scores[i]-average)/stdDev;
-            double percentile = cumulativeNormal(z)*100; 
+            double percentile = cumulativeNormal(z)*100;
             String name = names[i];
             printReportLine(name, s, z, percentile);
             System.out.println();
