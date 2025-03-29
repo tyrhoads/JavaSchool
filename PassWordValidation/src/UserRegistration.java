@@ -6,13 +6,16 @@ public class UserRegistration {
             PasswordValidator validator = new PasswordValidator();
             validator.validatePassword(password, confirmPassword);
             // COMPLETE THIS PART: Log success message
-        } catch (WeakPasswordException | PasswordMismatchException e) {
-            try (ValidationLogger logger = new ValidationLogger()) {
-                // COMPLETE THIS PART: Log failure message
+        } catch (WeakPasswordException | PasswordMismatchException e)
+        {
+            try (ValidationLogger logger = new ValidationLogger())
+            {
+                logger.logFailure(e.getMessage());
             }
         } finally {
             try (ValidationLogger logger = new ValidationLogger()) {
                 // COMPLETE THIS PART: Ensure completion message is printed once
+                logger.close();
             }
         }
     }
