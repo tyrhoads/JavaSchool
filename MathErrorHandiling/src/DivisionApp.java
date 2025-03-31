@@ -12,10 +12,13 @@ public class DivisionApp
             // Prompt the user to enter two numbers
             System.out.print("Enter the numerator: ");
 //TODO
+            int numerator = scanner.nextInt();
+            scanner.next();
 
             System.out.print("Enter the denominator: ");
 //TODO
-
+            int denominator = scanner.nextInt();
+            scanner.next();
 // Perform division
 //TODO
         }
