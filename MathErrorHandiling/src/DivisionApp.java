@@ -12,17 +12,18 @@ public class DivisionApp
             // Prompt the user to enter two numbers
             System.out.print("Enter the numerator: ");
 //TODO
-            int numerator = scanner.nextInt();
-            scanner.next();
+            double numerator = scanner.nextInt();
+
 
             System.out.print("Enter the denominator: ");
 //TODO
-            int denominator = scanner.nextInt();
-            scanner.next();
+            double denominator = scanner.nextInt();
+
 // Perform division
+            System.out.println("The answer is " + numerator/denominator);
 //TODO
         }
-        catch ()
+        catch (ArithmeticException e)
         {
             // Handle division by zero
             System.out.println("Error: Division by zero is not allowed.");
