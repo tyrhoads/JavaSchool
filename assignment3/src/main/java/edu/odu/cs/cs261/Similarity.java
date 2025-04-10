@@ -3,6 +3,8 @@ package edu.odu.cs.cs261;
 import java.util.HashSet;
 import java.util.Set;
 
+import static edu.odu.cs.cs261.Document.stoplist;
+
 
 public class Similarity {
 
@@ -38,9 +40,30 @@ public class Similarity {
      * 
      * @param threshold
      */
-    private void computeIndexTerms(int threshold) {
-        // TODO
+    private void computeIndexTerms(int threshold)
+    {
+        indexTerms = new HashSet<>(); // Initialize the set for index terms
+
+        // Collect words from doc1 that occur at least 'threshold' times
+        for (String word : doc1) {
+
+            int countDoc1 = doc1.getWordCount(word); // Count of word in doc1
+            if (countDoc1 >= threshold && !stoplist.contains(word)) {
+                indexTerms.add(word); // Add word if it meets threshold in doc1
+            }
+        }
+
+        // Collect words from doc2 that occur at least 'threshold' times
+        for (String word : doc2) {
+            int countDoc2 = doc2.getWordCount(word); // Count of word in doc2
+            if (countDoc2 >= threshold &&!stoplist.contains(word)) {
+                indexTerms.add(word); // Add word if it meets threshold in doc2
+            }
+        }
+
     }
+
+
 
     /**
      * Computes the similarity between two documents. The similarity is computed by
