@@ -6,9 +6,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
 
-/**
- * 
- */
+
+
 
 /**
  * This document class tracks the words in a document, counting how often they occur,
@@ -56,11 +55,13 @@ public class Document implements Iterable<String> {
         "where",
         "who",
         "will",
-        "with"
+        "with",
+
+
     }; 
     
     
-    private static HashSet<String> stoplist = new HashSet<String>(Arrays.asList(stopListWords));
+    public static HashSet<String> stoplist = new HashSet<String>(Arrays.asList(stopListWords));
     
 
     public Document(String documentName, String documentText) {
@@ -68,20 +69,21 @@ public class Document implements Iterable<String> {
         wordCounts = new HashMap<String, Integer>();
         Scanner scanner = new Scanner(documentText);
         while (scanner.hasNext()) {
-            String word = scanner.next(); 
+            String word = scanner.next();
             word = trimWord(word);
-            if (word.length() > 0)
-                countThisWord (word);
+            if (!word.isEmpty() && !stoplist.contains(word))
+                countThisWord(word);
         }
     }
     
     /**
      * If this word is not extremely common, add it to the document.
-     * 
+     *
      * @param word
      */
     private void countThisWord(String word) {
-        // TODO
+        wordCounts.put(word, wordCounts.getOrDefault(word, 0) + 1);
+
     }
 
     // 
@@ -117,7 +119,7 @@ public class Document implements Iterable<String> {
      */
     public int getWordCount (String word)
     {
-        return 0; // TODO
+        return wordCounts.getOrDefault(word.toLowerCase(),0);
     }
     
     
