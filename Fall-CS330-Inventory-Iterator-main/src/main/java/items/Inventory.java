@@ -30,7 +30,10 @@ public class Inventory implements Iterable<ItemStack>, Cloneable
      */
     public static void mergeStacks(ItemStack lhs, ItemStack rhs)
     {
-        // Refer to the notes from Assignment 1
+        // lhs needs to have items added to it.
+        // rhs's size is needed
+        // lhs.????(rhs.????)
+        lhs.addItems(rhs.size());
     }
 
     /**
@@ -119,9 +122,9 @@ public class Inventory implements Iterable<ItemStack>, Cloneable
     {
 
         for (ItemStack current : this) {
-            if (current.equals(key)) {
-                return current;
-            }
+           if (current.equals(key)) {
+               return current;
+           }
         }
 
 
@@ -173,6 +176,10 @@ public class Inventory implements Iterable<ItemStack>, Cloneable
     {
         Inventory copy = new Inventory(this.totalSlots());
 
+        for (ItemStack stack: this.slots)
+        {
+            copy.addItemStackNoCheck(stack.clone());
+        }
         // Add the missing copy logic (loop)
 
         return copy;
@@ -221,6 +228,12 @@ public class Inventory implements Iterable<ItemStack>, Cloneable
         strBld.append(summaryLine);
 
         // Add the missing loop
+        for (ItemStack stack: this.slots) {
+            String itemLine = String.format("  %s%n", stack.toString());
+            strBld.append(itemLine);
+
+
+        }
 
         return strBld.toString();
     }
