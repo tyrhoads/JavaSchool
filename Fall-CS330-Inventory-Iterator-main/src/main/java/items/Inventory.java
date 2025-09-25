@@ -94,7 +94,7 @@ public class Inventory implements Iterable<ItemStack>, Cloneable
      */
     public boolean isFull()
     {
-        return this.emptySlots()==0;
+        return this.slots.size() == capacity;
     }
 
     /**
@@ -117,7 +117,13 @@ public class Inventory implements Iterable<ItemStack>, Cloneable
      */
     public ItemStack findMatchingItemStack(ItemStack key)
     {
-        // Adapt the logic from Assignment 1
+
+        for (ItemStack current : this) {
+            if (current.equals(key)) {
+                return current;
+            }
+        }
+
 
         return null;
     }
