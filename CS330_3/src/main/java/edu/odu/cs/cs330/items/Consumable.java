@@ -122,6 +122,12 @@ public class Consumable extends Item {
     @Override
     public String toString()
     {
-        return String.format("  Use the hint in Armour.toString%n");
+        return String.join(
+                System.lineSeparator(),
+                String.format("  Nme: %s", super.getName()),
+                String.format("  Eft: %s", this.getEffect()),
+                String.format("  Use: %d", this.getNumberOfUses()),
+                ""
+        );
     }
 }
