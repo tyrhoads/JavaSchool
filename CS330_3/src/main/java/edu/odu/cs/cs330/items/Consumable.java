@@ -101,6 +101,8 @@ public class Consumable extends Item {
     public void read(Scanner snr)
     {
         super.name = snr.next();
+        this.effect = snr.next();
+        this.uses = snr.nextInt();
         // Refer to the hints in Armour.read
     }
 
