@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="edu.odu.cs.cs330.items.TestItemFactory" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-10-14T01:58:48.301Z" hostname="MacBookPro" time="0.01">
+  <properties/>
+  <testcase name="testCreateItem()" classname="edu.odu.cs.cs330.items.TestItemFactory" time="0.004"/>
+  <testcase name="testIsKnown()" classname="edu.odu.cs.cs330.items.TestItemFactory" time="0.001"/>
+  <testcase name="testParseItemLineFailure()" classname="edu.odu.cs.cs330.items.TestItemFactory" time="0.001"/>
+  <testcase name="testParseItemLineSuccess()" classname="edu.odu.cs.cs330.items.TestItemFactory" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

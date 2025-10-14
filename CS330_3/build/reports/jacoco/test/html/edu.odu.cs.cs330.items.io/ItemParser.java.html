@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ItemParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">2025-Fall-CS330-Java-Inventory-OOP-1</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs330.items.io</a> &gt; <span class="el_source">ItemParser.java</span></div><h1>ItemParser.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs330.items.io;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.util.List;
+import java.util.Objects;
+
+import edu.odu.cs.cs330.items.Item;
+import edu.odu.cs.cs330.items.ItemFactory;
+
+@SuppressWarnings({
+    &quot;PMD.LawOfDemeter&quot;,
+    &quot;PMD.LongVariable&quot;,
+    &quot;PMD.UseVarargs&quot;,
+    &quot;PMD.ClassNamingConventions&quot;
+})
+public final class ItemParser
+{
+    private ItemParser()
+    {
+    }
+
+    /**
+     * Read an input stream and generate a collection of Items.
+     *
+     * @param ins source from which to read Items
+     *
+     * @return initialized list of Items
+     *
+     * @throws IOException if an input error occurs
+     */
+    public static List&lt;Item&gt; readItems(final BufferedReader ins)
+        throws IOException
+    {
+<span class="fc" id="L37">        return ins</span>
+<span class="fc" id="L38">            .lines()</span>
+<span class="fc" id="L39">            .map((String line) -&gt; ItemFactory.parseItemLine(line))</span>
+<span class="fc" id="L40">            .filter(Objects::nonNull) // remove all nulls</span>
+<span class="fc" id="L41">            .collect(java.util.stream.Collectors.toList());</span>
+    }
+
+    /**
+     * Read an input stream and generate a collection of Items.
+     *
+     * @param filename source from which to read Items
+     *
+     * @return initialized list of Items
+     *
+     * @throws IOException if an input error occurs
+     */
+    public static List&lt;Item&gt; readItemsFromFile(final String filename)
+        throws IOException
+    {
+<span class="fc" id="L56">        try (BufferedReader buffer = Files.newBufferedReader(Paths.get(filename)) ) {</span>
+<span class="fc" id="L57">            return ItemParser.readItems(buffer);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

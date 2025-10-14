@@ -1,0 +1,20 @@
+Processing Log:
+ (S) Speed-II-Potion
+ (S) Tomato
+ (D) PotatoCamera
+ (D) PotatoCamera
+ (D) Boots
+ (D) Boots
+
+Player Storage Summary:
+ -Used 100% of 2 slots
+  Nme: Speed-II-Potion
+  Eft: Spd*2
+  Use: 1
+  Qty: 1
+
+  Nme: Tomato
+  Eft: Hunger-10
+  Use: 2
+  Qty: 1
+

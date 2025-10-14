@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Equippable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">2025-Fall-CS330-Java-Inventory-OOP-1</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs330.items</a> &gt; <span class="el_source">Equippable.java</span></div><h1>Equippable.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs330.items;
+
+/**
+ * This is the common (intermediary) base for all equipable items (i.e., Armour
+ * and Tool).
+ */
+@SuppressWarnings({
+    &quot;PMD.BeanMembersShouldSerialize&quot;,
+    &quot;PMD.DataClass&quot;,
+    &quot;PMD.ClassNamingConventions&quot;,
+    &quot;PMD.AbstractNaming&quot;,
+    &quot;PMD.MethodArgumentCouldBeFinal&quot;,
+    &quot;PMD.LocalVariableCouldBeFinal&quot;
+})
+public abstract class Equippable extends Item {
+    /**
+     * Durability decreases each time armour is used.
+     */
+    protected int durability;
+
+    /**
+     * Base material out of which the armour is constructed.
+     */
+    protected String material;
+
+    /**
+     * Type of enchantment afforded (e.g. protection, feather_falling, or
+     * unbreaking)
+     */
+    protected String modifier;
+
+    /**
+     * Enchantment level applied.
+     */
+    protected int modifierLevel;
+
+    /**
+     * Associated element--e.g., ice, fire, and lightning.
+     */
+    protected String element;
+
+    /**
+     * Default to a an equippable with an empty name, zero durability,
+     * blank material, no modifier a zero modifier level, and a blank
+     * element.
+     */
+    public Equippable()
+    {
+<span class="fc" id="L49">        super(&quot;[Placeholder]&quot;, false);</span>
+
+<span class="fc" id="L51">        this.durability    = 0;</span>
+<span class="fc" id="L52">        this.material      = &quot;&quot;;</span>
+<span class="fc" id="L53">        this.modifier      = &quot;&quot;;</span>
+<span class="fc" id="L54">        this.modifierLevel = 1;</span>
+<span class="fc" id="L55">        this.element       = &quot;&quot;;</span>
+<span class="fc" id="L56">    }</span>
+
+    /**
+     * Create an Equippable Item with a specified name.
+     *
+     * @param nme desired name
+     */
+    public Equippable(final String nme)
+    {
+<span class="fc" id="L65">        super(nme, false);</span>
+
+<span class="fc" id="L67">        this.durability    = 0;</span>
+<span class="fc" id="L68">        this.material      = &quot;&quot;;</span>
+<span class="fc" id="L69">        this.modifier      = &quot;&quot;;</span>
+<span class="fc" id="L70">        this.modifierLevel = 1;</span>
+<span class="fc" id="L71">        this.element       = &quot;&quot;;</span>
+<span class="fc" id="L72">    }</span>
+
+    /**
+     * Retrieve armour durability.
+     *
+     * @return remaining durability
+     */
+    public int getDurability()
+    {
+<span class="fc" id="L81">        return this.durability;</span>
+    }
+
+    /**
+     * Set armour durability.
+     *
+     * @param dur new durability value
+     */
+    public void setDurability(int dur)
+    {
+<span class="fc" id="L91">        this.durability = dur;</span>
+<span class="fc" id="L92">    }</span>
+
+    /**
+     * Retrieve armour material.
+     *
+     * @return base material
+     */
+    public String getMaterial()
+    {
+<span class="fc" id="L101">        return this.material;</span>
+    }
+
+    /**
+     * Set armour Material.
+     *
+     * @param mat replacement material type
+     */
+    public void setMaterial(String mat)
+    {
+<span class="fc" id="L111">        this.material = mat;</span>
+<span class="fc" id="L112">    }</span>
+
+    /**
+     * Retrieve armour modifier.
+     *
+     * @return buff/debuff provided
+     */
+    public String getModifier()
+    {
+<span class="fc" id="L121">        return this.modifier;</span>
+    }
+
+    /**
+     * Set armour modifier.
+     *
+     * @param mod updated modifier
+     */
+    public void setModifier(String mod)
+    {
+<span class="fc" id="L131">        this.modifier = mod;</span>
+<span class="fc" id="L132">    }</span>
+
+    /**
+     * Retrieve armour modifier level.
+     *
+     * @return buff/debuff level
+     */
+    public int getModifierLevel()
+    {
+<span class="fc" id="L141">        return this.modifierLevel;</span>
+    }
+
+    /**
+     * Set armour modifier level.
+     *
+     * @param level replacement modifier level
+     */
+    public void setModifierLevel(int level)
+    {
+<span class="fc" id="L151">        this.modifierLevel = level;</span>
+<span class="fc" id="L152">    }</span>
+
+    /**
+     * Retrieve armour element.
+     *
+     * @return element
+     */
+    public String getElement()
+    {
+<span class="fc" id="L161">        return this.element;</span>
+    }
+
+    /**
+     * Set armour element.
+     *
+     * @param ele new element
+     */
+    public void setElement(String ele)
+    {
+<span class="fc" id="L171">        this.element = ele;</span>
+<span class="fc" id="L172">    }</span>
+}
+
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

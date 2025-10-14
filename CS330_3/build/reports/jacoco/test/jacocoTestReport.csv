@@ -1,0 +1,18 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items.io,ItemParser,0,24,0,0,0,7,0,3,0,3
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items,Inventory,0,80,0,2,0,17,0,10,0,9
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items,ItemStack,13,89,0,6,5,23,2,12,2,9
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items,ItemFactory,0,49,0,6,0,13,0,8,0,5
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items,Consumable,3,42,0,0,1,15,1,8,1,8
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items,Armour,0,94,0,0,0,27,0,7,0,7
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items,Item,27,28,0,0,8,10,4,5,4,5
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items,Inventory.Builder.Result,0,5,0,0,0,2,0,1,0,1
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items,Inventory.Builder,0,142,0,10,0,36,0,15,0,10
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items,ItemFactory.new HashMap() {...},0,38,0,0,0,7,0,1,0,1
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items,Equippable,0,75,0,0,0,29,0,12,0,12
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items.creation,Event,0,27,0,0,0,5,0,2,0,2
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.items.creation,BuildResult,0,12,0,0,0,4,0,3,0,3
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.util,Pair,0,9,0,0,0,4,0,1,0,1
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.util,EventLog,0,39,0,0,0,11,0,5,0,5
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330.util,EventLog.Entry,0,20,0,0,0,5,0,4,0,4
+2025-Fall-CS330-Java-Inventory-OOP-1,edu.odu.cs.cs330,Storage,63,67,2,2,21,15,2,4,1,3

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Inventory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">2025-Fall-CS330-Java-Inventory-OOP-1</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs330.items</a> &gt; <span class="el_source">Inventory.java</span></div><h1>Inventory.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs330.items;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Optional;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.joining;
+
+import edu.odu.cs.cs330.items.creation.BuildResult;
+import edu.odu.cs.cs330.items.creation.Event;
+import edu.odu.cs.cs330.util.EventLog;
+
+
+/**
+ * An Inventory is composed of n slots. Each slot may store only
+ * one type of item--specified by *slots*.
+ * &lt;p&gt;
+ * Once all slots are filled, no additional Item types may be
+ * stored. Individual slots may contain any number of the same
+ * Item--if the Item is stackable.
+ */
+@SuppressWarnings({
+    &quot;PMD.BeanMembersShouldSerialize&quot;,
+    &quot;PMD.ClassWithOnlyPrivateConstructorsShouldBeFinal&quot;,
+    &quot;PMD.LawOfDemeter&quot;,
+    &quot;PMD.OnlyOneReturn&quot;,
+})
+public class Inventory implements Iterable&lt;ItemStack&gt;
+{
+    /**
+     * This is the Default Inventory size.
+     */
+    public static final int DEFAULT_SIZE = 10;
+
+    /**
+     * Individual item slots--each ItemStack occupies one slot.
+     */
+    private final List&lt;ItemStack&gt; slots;
+
+    /**
+     * Total number of distinct Item types that can be stored.
+     */
+    private final int capacity;
+
+    /**
+     * Create an inventory with n slots.
+     *
+     * @param desiredCapacity size of the new Inventory
+     */
+    private Inventory(final Builder builder)
+<span class="fc" id="L53">    {</span>
+<span class="fc" id="L54">        this.slots    = builder.items;</span>
+<span class="fc" id="L55">        this.capacity = builder.capacity;</span>
+<span class="fc" id="L56">    }</span>
+
+    /**
+     * Get the total number of slots (inventory size).
+     *
+     * @return maximum size
+     */
+    public int totalSlots()
+    {
+<span class="fc" id="L65">        return this.capacity;</span>
+    }
+
+    /**
+     * Get the number of currently filled (used) slots.
+     *
+     * @return number of slots in use
+     */
+    public int utilizedSlots()
+    {
+<span class="fc" id="L75">        return this.slots.size();</span>
+    }
+
+    /**
+     * Get the number of empty (unused) slots.
+     *
+     * @return number of available slots
+     */
+    public int emptySlots()
+    {
+<span class="fc" id="L85">        return this.totalSlots() - this.utilizedSlots();</span>
+    }
+
+    /**
+     * Determine if all slots are in use.
+     *
+     * @return true if all slots contain an ItemStack and false otherwise
+     */
+    public boolean isFull()
+    {
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        return this.emptySlots() == 0;</span>
+    }
+
+    /**
+     * Return the percent filled rounded to the nearest whole number (integer).
+     */
+    public int percentFilled()
+    {
+<span class="fc" id="L103">        return (int) Math.round(100.0 * this.utilizedSlots() / capacity);</span>
+    }
+
+    @Override
+    public Iterator&lt;ItemStack&gt; iterator()
+    {
+<span class="fc" id="L109">        return this.slots.iterator();</span>
+    }
+
+    private String usageSummary()
+    {
+<span class="fc" id="L114">        return String.format(&quot; -Used %3d%% of %d slots&quot;, percentFilled(), capacity);</span>
+    }
+
+    /**
+     * Generate a Summary of the Inventory and all Items contained within.
+     */
+    @Override
+    public String toString()
+    {
+<span class="fc" id="L123">        return Stream.concat(</span>
+<span class="fc" id="L124">            Stream.of(this.usageSummary()),</span>
+            this.slots
+<span class="fc" id="L126">                .stream()</span>
+<span class="fc" id="L127">                .map(Object::toString)</span>
+        )
+<span class="fc" id="L129">        .collect(</span>
+<span class="fc" id="L130">            joining(System.lineSeparator(), &quot;&quot;, &quot;&quot;)</span>
+        );
+    }
+
+    public static class Builder
+    {
+        private final EventLog&lt;Event&gt; eventLog;
+        /**
+         * Item stacks to store.
+         */
+        private final List&lt;ItemStack&gt; items;
+
+        /**
+         * Total number of distinct Item types that can be stored.
+         */
+        private int capacity;
+
+        /**
+         * Wrapper around the final Inventory object and event log.
+         */
+        public class Result extends BuildResult&lt;Event, Inventory&gt;
+        {
+            public Result(final EventLog&lt;Event&gt; log, final Inventory inv)
+            {
+<span class="fc" id="L154">                super(log, inv);</span>
+<span class="fc" id="L155">            }</span>
+        }
+
+        /**
+         * Record a Store, Merge, or Discard event along with the name of the
+         * relevent item.
+         */
+        private void recordEvent(final Event event, final ItemStack stack)
+        {
+<span class="fc" id="L164">            this.eventLog.record(event, stack.getItem().getName());</span>
+<span class="fc" id="L165">        }</span>
+
+        /**
+         * Construct a new builder.
+         */
+        public Builder()
+<span class="fc" id="L171">        {</span>
+<span class="fc" id="L172">            this.eventLog = new EventLog&lt;&gt;();</span>
+<span class="fc" id="L173">            this.items = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L174">            this.capacity = 0;</span>
+<span class="fc" id="L175">        }</span>
+
+        /**
+         * Select the default Inventory size
+         */
+        public Builder withDefaultCapacity()
+        {
+<span class="fc" id="L182">            return this.withCapacity(Inventory.DEFAULT_SIZE);</span>
+        }
+
+        /**
+         * Specify an inventory size.
+         *
+         * @param size desired size
+         */
+        public Builder withCapacity(final int size)
+        {
+<span class="fc" id="L192">            this.capacity = size;</span>
+<span class="fc" id="L193">            return this;</span>
+        }
+
+        /**
+         * Add one item to the inventory list.
+         *
+         * @param stack new stack of items to add
+         *
+         * @return true if *stack* was added and false otherwise
+         */
+        public Builder withItem(final Item oneItem)
+        {
+<span class="fc" id="L205">            final ItemStack stack = new ItemStack(oneItem);</span>
+<span class="fc" id="L206">            return this.withItems(stack);</span>
+        }
+
+        /**
+         * Add one or more items to the inventory list.
+         *
+         * @param stack new stack of items to add
+         *
+         * @return true if *stack* was added and false otherwise
+         */
+        public Builder withItems(final ItemStack stack)
+        {
+<span class="fc" id="L218">            final Optional&lt;ItemStack&gt; match = this.items.stream()</span>
+<span class="fc" id="L219">                .filter(entry -&gt; stack.equals(entry))</span>
+<span class="fc" id="L220">                .findFirst();</span>
+
+<span class="fc bfc" id="L222" title="All 2 branches covered.">            if (match.isPresent()) {</span>
+<span class="fc" id="L223">                final ItemStack matchingStack = match.get();</span>
+<span class="fc bfc" id="L224" title="All 2 branches covered.">                if (matchingStack.permitsStacking()) {</span>
+<span class="fc" id="L225">                    matchingStack.addItems(stack.size());</span>
+
+<span class="fc" id="L227">                    this.recordEvent(Event.MERGED, stack);</span>
+<span class="fc" id="L228">                    return this;</span>
+                }
+            }
+
+<span class="fc bfc" id="L232" title="All 2 branches covered.">            if (this.items.size() == this.capacity) {</span>
+<span class="fc" id="L233">                this.recordEvent(Event.DISCARDED, stack);</span>
+<span class="fc" id="L234">                return this;</span>
+            }
+
+<span class="fc" id="L237">            this.items.add(stack);</span>
+<span class="fc" id="L238">            this.recordEvent(Event.STORED, stack);</span>
+
+<span class="fc" id="L240">            return this;</span>
+        }
+
+        public Builder withItems(final Iterable&lt;Item&gt; itemsToStore)
+        {
+<span class="fc bfc" id="L245" title="All 2 branches covered.">            for (final Item item : itemsToStore) {</span>
+<span class="fc" id="L246">                this.withItem(item);</span>
+<span class="fc" id="L247">            }</span>
+
+<span class="fc" id="L249">            return this;</span>
+        }
+
+        public Builder withItemStacks(final Iterable&lt;ItemStack&gt; itemsToStore)
+        {
+<span class="fc bfc" id="L254" title="All 2 branches covered.">            for (final ItemStack stack : itemsToStore) {</span>
+<span class="fc" id="L255">                this.withItems(stack);</span>
+<span class="fc" id="L256">            }</span>
+
+<span class="fc" id="L258">            return this;</span>
+        }
+
+        public Result build()
+        {
+<span class="fc" id="L263">            return new Result(this.eventLog, new Inventory(this));</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

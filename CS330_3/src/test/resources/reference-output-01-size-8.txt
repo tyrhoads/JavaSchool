@@ -1,0 +1,39 @@
+Processing Log:
+ (S) Speed-II-Potion
+ (S) Tomato
+ (S) PotatoCamera
+ (M) PotatoCamera
+ (S) Boots
+ (S) Boots
+
+Player Storage Summary:
+ -Used  63% of 8 slots
+  Nme: Speed-II-Potion
+  Eft: Spd*2
+  Use: 1
+  Qty: 1
+
+  Nme: Tomato
+  Eft: Hunger-10
+  Use: 2
+  Qty: 1
+
+  Nme: PotatoCamera
+  Eft: ImageQuality-97%
+  Use: 5
+  Qty: 2
+
+  Nme: Boots
+  Dur: 100
+  Def: 10
+  Mtl: Diamond
+  Mdr: Protection (Lvl 3)
+  Emt: lightning
+
+  Nme: Boots
+  Dur: 100
+  Def: 10
+  Mtl: Diamond
+  Mdr: FeatherFalling (Lvl 4)
+  Emt: lightning
+

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EventLog.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">2025-Fall-CS330-Java-Inventory-OOP-1</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs330.util</a> &gt; <span class="el_source">EventLog.java</span></div><h1>EventLog.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs330.util;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.function.BiFunction;
+
+import static java.util.stream.Collectors.joining;
+
+
+/**
+ * Record all of Inventory build events and the corresponding items
+ */
+@SuppressWarnings({
+    &quot;PMD.BeanMembersShouldSerialize&quot;,
+})
+public class EventLog&lt;E extends Enum&gt;
+{
+    /**
+     * A record of all attempted operations.
+     */
+    private final List&lt;Entry&lt;E&gt;&gt; updateRecord;
+
+    /**
+     * A single entry in the log. It consists of an Event and a short description.
+     */
+    public class Entry&lt;E&gt; extends Pair&lt;E, String&gt;
+    {
+        public Entry(final E event, final String description)
+        {
+<span class="fc" id="L30">            super(event, description);</span>
+<span class="fc" id="L31">        }</span>
+
+        public E event()
+        {
+<span class="fc" id="L35">            return super.first;</span>
+        }
+
+        public String description()
+        {
+<span class="fc" id="L40">            return super.second;</span>
+        }
+
+        @SuppressWarnings({
+            &quot;PMD.LawOfDemeter&quot;
+        })
+        public String render(final BiFunction&lt;E, String, String&gt; renderer)
+        {
+<span class="fc" id="L48">            return renderer.apply(this.event(), this.description());</span>
+        }
+    }
+
+    public EventLog()
+<span class="fc" id="L53">    {</span>
+<span class="fc" id="L54">        this.updateRecord = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L55">    }</span>
+
+    public void record(final E event, final String description)
+    {
+<span class="fc" id="L59">        updateRecord.add(new Entry(event, description));</span>
+<span class="fc" id="L60">    }</span>
+
+    public List&lt;Entry&lt;E&gt;&gt; getRecords()
+    {
+<span class="fc" id="L64">        return this.updateRecord;</span>
+    }
+
+    public String renderRecords(final BiFunction&lt;E, String, String&gt; renderer)
+    {
+<span class="fc" id="L69">        return this.getRecords()</span>
+<span class="fc" id="L70">            .stream()</span>
+<span class="fc" id="L71">            .map(entry -&gt; entry.render(renderer))</span>
+<span class="fc" id="L72">            .collect(</span>
+<span class="fc" id="L73">                joining(System.lineSeparator(), &quot;&quot;, System.lineSeparator())</span>
+            );
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

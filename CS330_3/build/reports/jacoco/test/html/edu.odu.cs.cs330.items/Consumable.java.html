@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Consumable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">2025-Fall-CS330-Java-Inventory-OOP-1</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs330.items</a> &gt; <span class="el_source">Consumable.java</span></div><h1>Consumable.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs330.items;
+
+import java.util.Scanner;
+
+/**
+ * This class represents one Consumable Item--as found in most video games.
+ * This includes food.
+ *
+ * Consumable Items must be stackable.
+ */
+@SuppressWarnings({
+    &quot;PMD.BeanMembersShouldSerialize&quot;,
+    &quot;PMD.CloneMethodReturnTypeMustMatchClassName&quot;,
+    &quot;PMD.CloneThrowsCloneNotSupportedException&quot;,
+    &quot;PMD.LawOfDemeter&quot;,
+    &quot;PMD.OnlyOneReturn&quot;,
+    &quot;PMD.ProperCloneImplementation&quot;,
+    &quot;PMD.MethodArgumentCouldBeFinal&quot;,
+    &quot;PMD.LocalVariableCouldBeFinal&quot;,
+    &quot;PMD.BeanMembersShouldSerialize&quot;
+})
+public class Consumable extends Item {
+    /**
+     * The effect &quot;buff&quot; or &quot;debuff&quot; that is received when using this item.
+     */
+    protected String effect;
+
+    /**
+     * The number of times this item can be used.
+     */
+    protected int uses;
+
+    /**
+     * Default to a Consumable Item with an empty name, no effect and zero
+     * uses.
+     */
+    public Consumable()
+    {
+<span class="fc" id="L39">        super(&quot;&quot;, true);</span>
+
+<span class="fc" id="L41">        this.effect = &quot;&quot;;</span>
+<span class="fc" id="L42">        this.uses   = 0;</span>
+<span class="fc" id="L43">    }</span>
+
+    /**
+     * Create a copy of this Consumable.
+     *
+     * @param src consumable item to duplicate
+     */
+    public Consumable(Consumable src)
+    {
+<span class="fc" id="L52">        super(src.name, true);</span>
+
+        // Copy src.effect and src.uses
+<span class="fc" id="L55">    }</span>
+
+    /**
+     * Retrieve the effect.
+     *
+     * @return the set effect (i.e., buff or debuff)
+     */
+    public String getEffect()
+    {
+<span class="fc" id="L64">        return this.effect;</span>
+    }
+
+    /**
+     * Set a new buff or debuff.
+     *
+     * @param newEff replacement effect
+     */
+    public void setEffect(String newEff)
+    {
+<span class="fc" id="L74">        this.effect = newEff;</span>
+<span class="fc" id="L75">    }</span>
+
+    /**
+     * Retrieve permitted number of uses.
+     *
+     * @return number of total uses
+     */
+    public int getNumberOfUses()
+    {
+<span class="nc" id="L84">        return this.uses;</span>
+    }
+
+    /**
+     * Set the number of permitted uses.
+     *
+     * @param allowed number of allowed uses
+     */
+    public void setNumberOfUses(int allowed)
+    {
+<span class="fc" id="L94">        this.uses = allowed;</span>
+<span class="fc" id="L95">    }</span>
+
+    /**
+     * Read Consumable Item attributes.
+     */
+    @Override
+    public void read(Scanner snr)
+    {
+<span class="fc" id="L103">        super.name = snr.next();</span>
+        // Refer to the hints in Armour.read
+<span class="fc" id="L105">    }</span>
+
+    /**
+     * Clone--i.e., copy--this Consumable Item.
+     */
+    @Override
+    public Item clone()
+    {
+        // Replace the next line
+<span class="fc" id="L114">        return new Consumable();</span>
+    }
+
+    /**
+     * *Print* the Consumable Item.
+     */
+    @Override
+    public String toString()
+    {
+<span class="fc" id="L123">        return String.format(&quot;  Use the hint in Armour.toString%n&quot;);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

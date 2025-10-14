@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Armour.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">2025-Fall-CS330-Java-Inventory-OOP-1</a> &gt; <a href="index.source.html" class="el_package">edu.odu.cs.cs330.items</a> &gt; <span class="el_source">Armour.java</span></div><h1>Armour.java</h1><pre class="source lang-java linenums">package edu.odu.cs.cs330.items;
+
+import java.util.Scanner;
+
+/**
+ * This class represents one piece of armour--as found in most video games.
+ * This includes boots and helmets.
+ *
+ * Armour may not be stacked.
+ */
+@SuppressWarnings({
+    &quot;PMD.BeanMembersShouldSerialize&quot;,
+    &quot;PMD.CloneMethodReturnTypeMustMatchClassName&quot;,
+    &quot;PMD.CloneThrowsCloneNotSupportedException&quot;,
+    &quot;PMD.LawOfDemeter&quot;,
+    &quot;PMD.OnlyOneReturn&quot;,
+    &quot;PMD.ProperCloneImplementation&quot;,
+    &quot;PMD.MethodArgumentCouldBeFinal&quot;,
+    &quot;PMD.LocalVariableCouldBeFinal&quot;
+})
+public class Armour extends Equippable {
+    /**
+     * The amount of damage that can be negated.
+     */
+    protected int defense;
+
+    /**
+     * Default to a armour with an empty name, zero durability, zero defense,
+     * blank material, no modifier a zero modifier level, and a blank element.
+     */
+    public Armour()
+    {
+<span class="fc" id="L33">        super();</span>
+
+<span class="fc" id="L35">        this.defense = 0;</span>
+<span class="fc" id="L36">        this.durability=0;</span>
+<span class="fc" id="L37">        this.name=&quot;&quot;;</span>
+<span class="fc" id="L38">        this.material=&quot;&quot;;</span>
+<span class="fc" id="L39">        this.modifier=&quot;&quot;;</span>
+<span class="fc" id="L40">        this.modifierLevel=0;</span>
+<span class="fc" id="L41">        this.element=&quot;&quot;;</span>
+
+<span class="fc" id="L43">    }</span>
+
+    /**
+     * Duplicate a piece of armour.
+     *
+     * @param src armour to duplicate
+     */
+    public Armour(Armour src)
+    {
+<span class="fc" id="L52">        super(src.name);</span>
+
+<span class="fc" id="L54">        this.durability = src.durability;</span>
+<span class="fc" id="L55">        this.defense = src.defense;</span>
+<span class="fc" id="L56">        this.name=src.name;</span>
+<span class="fc" id="L57">        this.material=src.material;</span>
+<span class="fc" id="L58">        this.modifier=src.modifier;</span>
+<span class="fc" id="L59">        this.modifierLevel=src.modifierLevel;</span>
+<span class="fc" id="L60">        this.element=src.element;</span>
+
+<span class="fc" id="L62">    }</span>
+
+    /**
+     * Retrieve armour defense.
+     *
+     * @return total defense provided
+     */
+    public int getDefense()
+    {
+<span class="fc" id="L71">        return this.defense;</span>
+    }
+
+    /**
+     * Update defense.
+     *
+     * @param def replacement defense
+     */
+    public void setDefense(int def)
+    {
+<span class="fc" id="L81">        this.defense = def;</span>
+<span class="fc" id="L82">    }</span>
+
+    /**
+     * Read Armour attributes.
+     */
+    @Override
+    public void read(Scanner snr)
+    {
+<span class="fc" id="L90">        super.name = snr.next();</span>
+
+        // Use snr.next() and snr.nextInt() to read in values remaining fields
+
+<span class="fc" id="L94">    }</span>
+
+    /**
+     * Clone--i.e., copy--this Armour.
+     */
+    @Override
+    public Item clone()
+    {
+        // Replace the return
+<span class="fc" id="L103">        return new Armour();</span>
+    }
+
+    /**
+     * *Print* one Armour.
+     */
+    @Override
+    public String toString()
+    {
+        // Complete the String.join sequence
+<span class="fc" id="L113">        return String.join(</span>
+<span class="fc" id="L114">            System.lineSeparator(),</span>
+<span class="fc" id="L115">            String.format(&quot;  Nme: %s&quot;, super.getName()),</span>
+            &quot;&quot;
+        );
+    }
+}
+
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
