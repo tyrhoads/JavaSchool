@@ -50,10 +50,8 @@ public class Consumable extends Item {
     public Consumable(Consumable src)
     {
         super(src.name, true);
-
-       this.effect = src.effect;
-       this.uses = src.uses;
-
+        this.effect = src.effect;
+        this.uses = src.uses;
         // Copy src.effect and src.uses
     }
 
@@ -116,7 +114,12 @@ public class Consumable extends Item {
     public Item clone()
     {
         // Replace the next line
-        return new Consumable();
+         Consumable copy = new Consumable();
+         copy.setName(super.name);
+         copy.setNumberOfUses(this.uses);
+         copy.setEffect(this.effect);
+
+         return copy;
     }
 
     /**
