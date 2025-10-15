@@ -105,8 +105,18 @@ public class Armour extends Equippable {
     @Override
     public Item clone()
     {
+        Armour copy = new Armour();
+        copy.setName(super.name);
+        copy.setMaterial(super.material);
+        copy.setDurability(super.durability);
+        copy.setDefense(this.defense);
+        copy.setMaterial(this.material);
+        copy.setModifier(this.modifier);
+        copy.setElement(super.element);
+        copy.setModifierLevel(this.modifierLevel);
+
         // Replace the return
-        return new Armour();
+        return copy;
     }
 
     /**
