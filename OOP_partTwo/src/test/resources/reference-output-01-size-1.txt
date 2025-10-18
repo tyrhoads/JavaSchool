@@ -1,0 +1,20 @@
+Processing Log:
+ (S) Pickaxe
+ (D) Shovel
+ (D) Pickaxe
+ (D) Speed-II-Potion
+ (D) Tomato
+ (D) PotatoCamera
+ (D) PotatoCamera
+ (D) Axe
+ (D) Boots
+ (D) Boots
+
+Player Storage Summary:
+ -Used 100% of 1 slots
+  Nme: Pickaxe
+  Dur: 100
+  Spd: 1
+  Mtl: Diamond
+  Mdr: Fortune (Lvl 5)
+
