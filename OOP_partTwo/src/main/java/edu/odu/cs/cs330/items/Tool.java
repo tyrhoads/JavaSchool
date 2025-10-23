@@ -87,7 +87,13 @@ public class Tool extends Equippable {
     @Override
     public void read(Scanner snr)
     {
-        // Complete this method
+        super.name = snr.next();
+        super.material=snr.next();
+        super.durability = snr.nextInt();
+        this.speed=snr.nextInt();
+        this.modifier=snr.next();
+        super.modifierLevel=snr.nextInt();
+
     }
 
     /**
@@ -136,8 +142,12 @@ public class Tool extends Equippable {
     @Override
     public int hashCode()
     {
-        // Replace the return
-        return -1;
+        int nameHash = (this.name == null) ? 0 : this.name.hashCode();
+        int materialHash = (this.material == null) ? 0 : this.material.hashCode();
+        int modifierHash = (this.modifier == null) ? 0 : this.modifier.hashCode();
+
+
+        return nameHash+materialHash+modifierHash;
     }
 
     /**
@@ -148,10 +158,12 @@ public class Tool extends Equippable {
     {
         return String.join(
             System.lineSeparator(),
-            String.format("  Refer to..."),
-            String.format("  ...solution for the..."),
-            String.format("  ...previous assignment"),
-            ""
+                String.format("  Nme: %s", super.getName()),
+                String.format("  Dur: %d", this.getDurability()),
+                String.format("  Spd: %d", this.getSpeed()),
+                String.format("  Mtl: %s", this.getMaterial()),
+                String.format("  Mdr: %s (Lvl %d)", this.getModifier(), super.getModifierLevel()),
+                ""
         );
     }
 }
