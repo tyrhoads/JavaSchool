@@ -123,8 +123,10 @@ public class Tool extends Equippable {
 
         Tool rhsItem = (Tool) rhs;
 
-        // Replace the return
-        return false;
+            return this.name.equals(rhsItem.name)
+            && this.material.equals(rhsItem.material)
+            && this.modifier.equals(rhsItem.modifier)
+            && this.element.equals(rhsItem.element);
     }
 
     /**
