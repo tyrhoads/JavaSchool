@@ -154,8 +154,12 @@ public class Armour extends Equippable {
     @Override
     public int hashCode()
     {
+        int nameHash = (this.name == null) ? 0 : this.name.hashCode();
+        int materialHash = (this.material == null) ? 0 : this.material.hashCode();
+        int modifierHash = (this.modifier == null) ? 0 : this.modifier.hashCode();
+        int elementHash = (this.element == null) ? 0 : this.element.hashCode();
 
-        return -1;
+        return nameHash+materialHash+modifierHash+elementHash;
     }
 
     /**
