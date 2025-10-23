@@ -107,6 +107,9 @@ public class Consumable extends Item {
     @Override
     public void read(Scanner snr)
     {
+        super.name = snr.next();
+        this.effect = snr.next();
+        this.uses = snr.nextInt();
         // Complete this method
     }
 
@@ -116,11 +119,14 @@ public class Consumable extends Item {
     @Override
     public Item clone()
     {
-        Consumable cpy = new Consumable();
-        
-        // Add the missing logic
+        Consumable copy = new Consumable();
+        copy.setName(super.name);
+        copy.setNumberOfUses(this.uses);
+        copy.setEffect(this.effect);
 
-        return cpy;
+        return copy;
+
+
     }
 
     /**
@@ -135,11 +141,12 @@ public class Consumable extends Item {
             return false;
         }
 
-        Consumable rhsItem = (Consumable) rhs;
+       Consumable rhsItem = (Consumable) rhs;
 
         // Maybe this equals method is a hint... that can be used as a guide...
-        return this.name.equals(rhsItem.name)
+            return this.name.equals(rhsItem.name)
             && this.effect.equals(rhsItem.effect);
+
     }
 
     /**
@@ -162,11 +169,11 @@ public class Consumable extends Item {
     public String toString()
     {
         return String.join(
-            System.lineSeparator(),
-            String.format("  Refer to..."),
-            String.format("  ...solution for the..."),
-            String.format("  ...previous assignment"),
-            ""
+                System.lineSeparator(),
+                String.format("  Nme: %s", super.getName()),
+                String.format("  Eft: %s", this.getEffect()),
+                String.format("  Use: %d", this.getNumberOfUses()),
+                ""
         );
     }
 }
