@@ -158,8 +158,10 @@ public class Consumable extends Item {
     @Override
     public int hashCode()
     {
-        // Replace the return
-        return -1;
+        int nameHash = (this.name == null) ? 0 : this.name.hashCode();
+        int effectHash = (this.effect == null) ? 0 : this.effect.hashCode();
+
+        return nameHash + effectHash;
     }
 
     /**
