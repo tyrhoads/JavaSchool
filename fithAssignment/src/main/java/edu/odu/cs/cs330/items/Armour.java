@@ -89,8 +89,17 @@ public class Armour extends Equippable {
     @Override
     public Item clone()
     {
+        Armour copy = new Armour();
+        copy.setName(super.name);
+        copy.setMaterial(super.getMaterial());
+        copy.setDurability(super.getDurability());
+        copy.setDefense(this.getDefense());
+        copy.setModifier(super.getModifier());
+        copy.setElement(super.getElement());
+        copy.setModifierLevel(super.getModifierLevel());
+
         // Replace the return
-        return new Armour();
+        return copy;
     }
 
     /**
@@ -108,8 +117,12 @@ public class Armour extends Equippable {
 
         Armour rhsItem = (Armour) rhs;
 
-        // Replace this return
-        return false;
+        return this.name.equals(rhsItem.name)
+                && super.getMaterial().equals(rhsItem.getMaterial())
+                && super.getModifier().equals(rhsItem.getModifier())
+                && super.getElement().equals(rhsItem.getElement())
+                && super.getModifierLevel() == rhsItem.getModifierLevel()
+                && this.getDefense() == rhsItem.getDefense();
 
     }
 
@@ -120,8 +133,14 @@ public class Armour extends Equippable {
     @Override
     public int hashCode()
     {
-        // Replace this return
-        return -1;
+        return Objects.hash(
+                name,
+                getMaterial(),
+                getModifier(),
+                getElement(),
+                getModifierLevel(),
+                getDefense()
+        );
     }
 
     /**
@@ -130,8 +149,16 @@ public class Armour extends Equippable {
     @Override
     public String toString()
     {
-        // Use String.format and the provided FMT_STR
-        return "  Not Implemented";
+        return String.join(
+                System.lineSeparator(),
+                String.format("  Nme: %s", super.getName()),
+                String.format("  Dur: %d", super.getDurability()),
+                String.format("  Def: %d", this.getDefense()),
+                String.format("  Mtl: %s", super.getMaterial()),
+                String.format("  Mdr: %s (Lvl %d)", this.getModifier(), super.getModifierLevel()),
+                String.format("  Emt: %s", super.getElement()),
+                ""
+        );
     }
 }
 
