@@ -116,8 +116,12 @@ public class Tool extends Equippable {
 
         Tool rhsItem = (Tool) rhs;
 
-        // Replace the return
-        return false;
+        return this.name.equals(rhsItem.name)
+                && this.getSpeed() == rhsItem.getSpeed()
+                && super.getMaterial().equals(rhsItem.getMaterial())
+                && super.getModifier().equals(rhsItem.getModifier())
+                && super.getModifierLevel() == rhsItem.getModifierLevel();
+
     }
 
     /**
