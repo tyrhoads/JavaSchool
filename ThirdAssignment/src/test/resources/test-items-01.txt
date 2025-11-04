@@ -1,0 +1,6 @@
+Armor Boots Diamond 100 10 FeatherFalling 4 lightning
+LOLNOTAVALIDITEM potato 7
+Food Tomato Hunger-10 2
+LOLNOTAVALIDITEM potato 7
+Tool Shovel Gold 20 3 Unbreaking 2
+LOLNOTAVALIDITEM potato 7
