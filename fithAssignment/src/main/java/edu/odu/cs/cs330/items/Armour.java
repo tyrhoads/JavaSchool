@@ -71,15 +71,24 @@ public class Armour extends Equippable {
     public int requiredNumberOfValues()
     {
         // What is the correct return value?
-        return -1;
+        return 7;
     }
 
     @Override
     public void fromTokens(String[] tokens)
     {
-        this.setName(tokens[0]);
 
-        // Add the missing lines
+        this.setName(tokens[0]);
+        this.setMaterial(tokens[1]);
+        this.setDurability(Integer.parseInt(tokens[2]));
+        this.setDefense(Integer.parseInt(tokens[3]));
+        this.setModifier(tokens[4]);
+        this.setModifierLevel(Integer.parseInt(tokens[5]));
+        this.setElement(tokens[6]);
+
+
+
+
 
     }
 
@@ -91,12 +100,12 @@ public class Armour extends Equippable {
     {
         Armour copy = new Armour();
         copy.setName(super.name);
-        copy.setMaterial(super.getMaterial());
-        copy.setDurability(super.getDurability());
+        copy.setMaterial(this.getMaterial());
+        copy.setDurability(this.getDurability());
         copy.setDefense(this.getDefense());
-        copy.setModifier(super.getModifier());
-        copy.setElement(super.getElement());
-        copy.setModifierLevel(super.getModifierLevel());
+        copy.setModifier(this.getModifier());
+        copy.setElement(this.getElement());
+        copy.setModifierLevel(this.getModifierLevel());
 
         // Replace the return
         return copy;
