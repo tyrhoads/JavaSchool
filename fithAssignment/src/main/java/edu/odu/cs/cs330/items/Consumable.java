@@ -1,5 +1,7 @@
 package edu.odu.cs.cs330.items;
 
+import java.util.Objects;
+
 /**
  * This class represents one Consumable Item--as found in most video games.
  * This includes food.
@@ -100,15 +102,17 @@ public class Consumable extends Item {
     public int requiredNumberOfValues()
     {
         // What is the correct return value?
-        return -1;
+        return 3;
     }
 
     @Override
     public void fromTokens(String[] tokens)
     {
         this.setName(tokens[0]);
+        this.setEffect(tokens[1]);
+        this.setNumberOfUses(Integer.parseInt(tokens[2]));
 
-        // Complete this method.
+
     }
 
     /**
@@ -117,11 +121,15 @@ public class Consumable extends Item {
     @Override
     public Item clone()
     {
-        Consumable cpy = new Consumable();
-        
-        // Add the missing logic
 
-        return cpy;
+        Consumable copy = new Consumable();
+        copy.setName(super.getName());
+        copy.setNumberOfUses(this.getNumberOfUses());
+        copy.setEffect(this.getEffect());
+
+        return copy;
+
+
     }
 
     /**
@@ -152,8 +160,12 @@ public class Consumable extends Item {
     @Override
     public int hashCode()
     {
-        // Replace the return
-        return -1;
+        return Objects.hash(
+                name,
+                getEffect()
+
+
+        );
     }
 
     /**
@@ -162,7 +174,12 @@ public class Consumable extends Item {
     @Override
     public String toString()
     {
-        // Use String.format and the provided FMT_STR
-        return "  Not Implemented";
+        return String.join(
+                System.lineSeparator(),
+                String.format("  Nme: %s", super.getName()),
+                String.format("  Eft: %s", this.getEffect()),
+                String.format("  Use: %d", this.getNumberOfUses()),
+                ""
+        );
     }
 }
