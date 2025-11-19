@@ -1,0 +1,25 @@
+Player Storage Summary:
+ -Used 100% of 4 slots
+  Nme: Pickaxe
+  Dur: 100
+  Spd: 1
+  Mtl: Diamond
+  Mdr: Fortune (Lvl 5)
+
+  Nme: Shovel
+  Dur: 20
+  Spd: 3
+  Mtl: Gold
+  Mdr: Unbreaking (Lvl 2)
+
+  Nme: Pickaxe
+  Dur: 100
+  Spd: 1
+  Mtl: Diamond
+  Mdr: Fortune (Lvl 5)
+
+  Nme: Speed-II-Potion
+  Eft: Spd*2
+  Use: 1
+  Qty: 1
+
