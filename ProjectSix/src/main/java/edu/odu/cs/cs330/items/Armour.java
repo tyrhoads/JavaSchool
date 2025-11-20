@@ -74,11 +74,17 @@ public class Armour extends Equippable implements Item
     @Override
     public Item clone()
     {
-        Armour cpy = new Armour();
+        Armour copy = new Armour();
+        copy.setName(super.name);
+        copy.setMaterial(this.getMaterial());
+        copy.setDurability(this.getDurability());
+        copy.setDefense(this.getDefense());
+        copy.setModifier(this.getModifier());
+        copy.setElement(this.getElement());
+        copy.setModifierLevel(this.getModifierLevel());
 
-        // Refer to the previous assignment
-
-        return cpy;
+        // Replace the return
+        return copy;
     }
 
     /**
@@ -127,7 +133,16 @@ public class Armour extends Equippable implements Item
     @Override
     public String toString()
     {
-        return "  Refer to the previous assignment...";
+        return String.join(
+                System.lineSeparator(),
+                String.format("  Nme: %s", super.getName()),
+                String.format("  Dur: %d", super.getDurability()),
+                String.format("  Def: %d", this.getDefense()),
+                String.format("  Mtl: %s", super.getMaterial()),
+                String.format("  Mdr: %s (Lvl %d)", this.getModifier(), super.getModifierLevel()),
+                String.format("  Emt: %s", super.getElement()),
+                ""
+        );
     }
 }
 
