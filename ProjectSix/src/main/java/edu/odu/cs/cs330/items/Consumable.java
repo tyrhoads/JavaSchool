@@ -1,5 +1,7 @@
 package edu.odu.cs.cs330.items;
 
+import java.util.Objects;
+
 /**
  * This class represents one Consumable Item--as found in most video games.
  * This includes food.
@@ -119,11 +121,15 @@ public class Consumable implements Item {
     @Override
     public Item clone()
     {
-        Consumable cpy = new Consumable();
 
-        // Refer to the previous assignment
+        Consumable copy = new Consumable();
+        copy.setName(this.getName());
+        copy.setNumberOfUses(this.getNumberOfUses());
+        copy.setEffect(this.getEffect());
 
-        return cpy;
+        return copy;
+
+
     }
 
     /**
@@ -140,8 +146,9 @@ public class Consumable implements Item {
 
         Consumable rhsItem = (Consumable) rhs;
 
-        // Refer to the previous assignment
-        return false;
+        // Maybe this equals method is a hint... that can be used as a guide...
+        return this.name.equals(rhsItem.name)
+                && this.effect.equals(rhsItem.effect);
     }
 
     /**
@@ -153,8 +160,12 @@ public class Consumable implements Item {
     @Override
     public int hashCode()
     {
-        // Refer to the previous assignment
-        return -1;
+        return Objects.hash(
+                name,
+                getEffect()
+
+
+        );
     }
 
     /**
@@ -163,6 +174,12 @@ public class Consumable implements Item {
     @Override
     public String toString()
     {
-        return "  Refer to the previous assignment...";
+        return String.join(
+                System.lineSeparator(),
+                String.format("  Nme: %s", this.getName()),
+                String.format("  Eft: %s", this.getEffect()),
+                String.format("  Use: %d", this.getNumberOfUses()),
+                ""
+        );
     }
 }
