@@ -1,0 +1,32 @@
+name: Run Tests and Checks
+on: push
+jobs:
+  gradle:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-java@v3
+      with:
+        distribution: temurin
+        java-version: 21
+
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+          arguments: assemble
+
+    - name: Run Tests
+      uses: gradle/gradle-build-action@v2
+      with:
+          arguments: test
+
+    - name: Run Storage.jar
+      uses: gradle/gradle-build-action@v2
+      with:
+          arguments: run
+
+    - name: Publish Test Report
+      uses: mikepenz/action-junit-report@v3
+      if: success() || failure()
+      with:
+        report_paths: '**/build/test-results/test/TEST-*.xml'

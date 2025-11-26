@@ -1,0 +1,148 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id "java"
+    id "application"
+    id "jvm-test-suite"
+    id "eclipse"
+
+    id "checkstyle"
+    id "com.github.spotbugs" version "6.2.1"
+    id "project-report"
+    id "jacoco"
+    id "pmd"
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion(21)
+    targetCompatibility = JavaVersion.toVersion(21)
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Everything in src/main (production code).
+    // implementation ...
+    implementation "org.slf4j:slf4j-api:1.7.25"
+    implementation "org.tinylog:slf4j-tinylog:2.7.0"
+
+    // Only needed when running main
+    runtimeOnly 'org.tinylog:tinylog-impl:2.7.0'
+
+    // Everything in src/test (test code)
+    testImplementation "org.junit.jupiter:junit-jupiter:5.8.2"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:5.8.2"
+    testImplementation "org.hamcrest:hamcrest-library:2.2"
+}
+
+jar {
+    archiveBaseName = "Storage"
+
+    manifest {
+        attributes(
+            "Main-Class": "edu.odu.cs.cs330.Storage"
+        )
+    }
+}
+
+run {
+    mainClass = "edu.odu.cs.cs330.Storage"
+    args = ["src/main/resources/items-01.txt"]
+}
+
+application {
+    mainClass = "edu.odu.cs.cs330.Storage"
+}
+
+testing {
+    suites {
+        test {
+            useJUnitJupiter()
+
+        }
+    }
+}
+
+test {
+    ignoreFailures = true
+
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+
+    finalizedBy jacocoTestReport
+}
+
+//------------------------------------------------------------------------------
+// Documentation Tool(s)
+//------------------------------------------------------------------------------
+javadoc {
+    failOnError = false
+}
+
+//------------------------------------------------------------------------------
+// Analysis Tool(s)
+//------------------------------------------------------------------------------
+jacoco {
+    toolVersion = "0.8.13"
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        csv.required = true
+    }
+}
+
+// SpotBugs
+spotbugs {
+    toolVersion = "4.9.3"
+}
+
+spotbugsMain {
+    ignoreFailures = true
+    effort = com.github.spotbugs.snom.Effort.MAX
+    reportLevel = com.github.spotbugs.snom.Confidence.values()[1] // Medium
+    reports {
+       xml.required = false
+       html.required = true
+    }
+}
+
+spotbugsTest.enabled = false
+// End SpotBugs config
+
+pmd {
+    toolVersion = "7.0.0"
+
+    ignoreFailures = true
+    ruleSets = [
+        "category/java/bestpractices.xml",
+        "category/java/codestyle.xml",
+        "category/java/design.xml",
+        "category/java/errorprone.xml",
+        "category/java/performance.xml"
+    ]
+}
+
+// Check Style Config
+checkstyle {
+    toolVersion = "10.12.4"
+    ignoreFailures = true
+    showViolations = false
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        html.outputLocation = project.file("build/reports/checkstyle/main.html")
+    }
+}
+checkstyleTest.enabled = false
+// End Checkstyle config
+
