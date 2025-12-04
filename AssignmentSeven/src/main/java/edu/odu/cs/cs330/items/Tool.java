@@ -1,5 +1,7 @@
 package edu.odu.cs.cs330.items;
 
+import java.util.Objects;
+
 /**
  * This class represents one tool--as found in most video games. This includes
  * pickaxes and shovels.
@@ -81,8 +83,12 @@ public class Tool extends Equippable implements Item {
 
         Tool rhsItem = (Tool) rhs;
 
-        // Refer to the previous assignment
-        return false;
+        return this.name.equals(rhsItem.name)
+                && this.getSpeed() == rhsItem.getSpeed()
+                && super.getMaterial().equals(rhsItem.getMaterial())
+                && super.getModifier().equals(rhsItem.getModifier())
+                && super.getModifierLevel() == rhsItem.getModifierLevel();
+
     }
 
     /**
@@ -92,8 +98,15 @@ public class Tool extends Equippable implements Item {
     @Override
     public int hashCode()
     {
-        // Refer to the previous assignment
-        return -1;
+        return Objects.hash(
+                name,
+                getSpeed(),
+                getMaterial(),
+                getModifier(),
+                getModifierLevel()
+
+
+        );
     }
 
     /**
@@ -102,6 +115,14 @@ public class Tool extends Equippable implements Item {
     @Override
     public String toString()
     {
-        return "  Refer to the previous assignment...";
+        return String.join(
+                System.lineSeparator(),
+                String.format("  Nme: %s", super.getName()),
+                String.format("  Dur: %d", this.getDurability()),
+                String.format("  Spd: %d", this.getSpeed()),
+                String.format("  Mtl: %s", this.getMaterial()),
+                String.format("  Mdr: %s (Lvl %d)", this.getModifier(), super.getModifierLevel()),
+                ""
+        );
     }
 }
